@@ -9,7 +9,7 @@ fn main() {
     let seed = 0;
 
     let mut thread_pool_builder = ThreadPoolBuilder::new();
-    thread_pool_builder = thread_pool_builder.num_threads(4);
+    thread_pool_builder = thread_pool_builder.num_threads(1);
     let pool = thread_pool_builder.build().unwrap();
 
     let mut rng = StdRng::seed_from_u64(seed);
