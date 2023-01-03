@@ -22,7 +22,7 @@ fn main() {
             let mut rng = StdRng::seed_from_u64(seed);
             
             for _ in 0..2 {
-                println!("{}", rng.gen::<u64>());
+                println!("{}", rng.gen_range(0 .. 100));
             }
         });
     });
