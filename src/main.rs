@@ -17,13 +17,17 @@ fn main() {
     let seeds = (0..10).into_iter().map(|_| rng.gen()).collect::<Vec<u64>>();
 
     pool.install(|| {
-        seeds.into_par_iter().map(move |seed: u64| {
+        let result: Vec<Vec<u64>> = seeds.into_par_iter().map(move |seed| {
             println!("\n seed: {}", seed);
             let mut rng = StdRng::seed_from_u64(seed);
             
+            let mut result = Vec::new();
             for _ in 0..10 {
-                println!("{}", rng.gen_range(0 .. 100));
+                result.push(rng.gen_range(0 .. 100));
             }
-        });
+            println!("result: {:?}", result);
+        
+            result
+        }).collect();
     });
 }
