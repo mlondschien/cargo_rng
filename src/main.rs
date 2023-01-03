@@ -21,7 +21,7 @@ fn main() {
             println!("\n seed: {}", seed);
             let mut rng = StdRng::seed_from_u64(seed);
             
-            for _ in 0..2 {
+            for _ in 0..10 {
                 println!("{}", rng.gen_range(0 .. 100));
             }
         });
