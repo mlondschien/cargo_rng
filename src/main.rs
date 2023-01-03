@@ -17,7 +17,7 @@ fn main() {
     let seeds = (0..10).into_iter().map(|_| rng.gen()).collect::<Vec<u64>>();
 
     pool.install(|| {
-        seeds.into_par_iter().for_each(|seed| {
+        seeds.into_par_iter().map(move |seed: u64| {
             println!("\n seed: {}", seed);
             let mut rng = StdRng::seed_from_u64(seed);
             
