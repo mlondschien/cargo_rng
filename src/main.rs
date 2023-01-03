@@ -9,7 +9,7 @@ fn main() {
     let seed = 0;
 
     let mut thread_pool_builder = ThreadPoolBuilder::new();
-    thread_pool_builder = thread_pool_builder.num_threads(1);
+    thread_pool_builder = thread_pool_builder.num_threads(4);
     let pool = thread_pool_builder.build().unwrap();
 
     let mut rng = StdRng::seed_from_u64(seed);
@@ -21,7 +21,8 @@ fn main() {
             println!("\n seed: {}", seed);
             let mut rng = StdRng::seed_from_u64(seed);
             
-            let _unused = rng.gen::<u64>();
+            let used = rng.gen::<u64>();
+            println!("used: {}", used);
 
             let mut result = Vec::new();
             for _idx in 0..10 {
